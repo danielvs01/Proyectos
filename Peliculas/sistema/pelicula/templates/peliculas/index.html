@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block titulo %} Inicio {% endblock %}
+
+{% block contenido %}
+
+<div class="card">
+    <div class="card-header">
+        Listado de peliculas
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Peliculas</h4>
+        
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Titulo</th>
+                        <th scope="col">imagen</th>
+                        <th scope="col">Descripcion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="">
+                        <td scope="row">1</td>
+                        <td>Shrek</td>
+                        <td>Image.jpg</td>
+                        <td>Es un ogro bien pasado que tiene un final feliz</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+
+    </div>
+    <div class="card-footer text-muted">
+        
+    </div>
+</div>
+
+
+{% endblock %}
