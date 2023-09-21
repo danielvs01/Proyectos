@@ -12,7 +12,7 @@
         <h4 class="card-title">Peliculas</h4>
         
         <div class="table-responsive">
-            <table class="table table-primary">
+            <table class="table responsive">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -27,7 +27,7 @@
                     <tr class="">
                         <td scope="row">{{ pelicula.id }}</td>
                         <td>{{ pelicula.titulo }}</td>
-                        <td><img scr="{{ pelicula.imagen.url }}" height="100"></td>
+                        <td><img src="{{ pelicula.imagen.url }}" height="100"></td>
                         <td>{{ pelicula.descripcion }}</td>
                         <td>
                             <a href="#" class="btn btn-warning">Editar</a>
