@@ -1,0 +1,23 @@
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {% for campo in formulario %}
+    <div class="mb-3">
+        <label for="{titulo}">{{campo.label}}</label>
+
+        {% if campo.field.widget.input_type == 'file' and campo.value %}
+        <br>
+        <br>
+        <img src="{{ campo.value.url }}" height="100" width="100">
+        <br>
+        <br>
+        {% endif %}
+
+        <input type="{{ campo.field.widget.input_type }}" class="form-control" name="{{ campo.name }}" id="" placeholder="{{campo.label}}" Value="{{campo.value | default:''}}">
+        <small id="helpid" class="form-text text-muted">{{campo.errors}}</small>
+        </div>
+    {% endfor %}
+    <input name="" id="" class="btn btn-success" type="submit" value="Enviar información">
+
+    <a name="" id="" class="btn btn-primary" href="{% url 'peliculas' %}" role="button">Cancelar</a>
+    </form>

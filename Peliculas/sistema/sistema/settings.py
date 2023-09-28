@@ -125,7 +125,7 @@ STATIC_URL = 'static/'
 
 # Para agregar imagenes a los formularios
 
-media_root = os.path.join(BASE_DIR, '')
+MEDIA_ROOT = os.path.join(BASE_DIR, '')
 MEDIA_URL = '/imagenes/'
 
 # Default primary key field type
