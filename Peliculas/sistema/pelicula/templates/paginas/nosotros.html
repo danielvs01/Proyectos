@@ -4,7 +4,14 @@
 
 {% block contenido %}
 
-<h1>Nosotros<h1>
-<p>Hola a todos</p>
+<div class="card mx-auto text-center" style="max-width: 60rem; background-color: rgb(0, 170, 228, 0.2);"> 
+    <img src="https://c4.wallpaperflare.com/wallpaper/621/859/641/peliculas-terror-wallpaper-preview.jpg" class="card-img-top" alt="Una imagen larga" width="800" height="350">
+    <div class="card-body">
+    <h5 class="card-title" style="font-size: x-large; color: #ffffff; filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 1));">Sobre nosotros</h5>
+    <p class="card-text"style="font-size: x-large; color: #ffffff; filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 1));">Las historias nos conmueven. Nos hacen sentir más emoción, ver nuevas perspectivas, y acercarnos unos a otros.</p>
+    <p class="card-text"style="font-size: x-large; color: #ffffff; filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 1));">Cualquiera que sea su gusto y sin importar dónde viva, le brindamos acceso a las mejores películas, además de tener la opción de agregar o eliminar las películas a su gusto.</p>
+    <a href="{% url 'inicio' %}" class="btn btn-outline-light btn-lg">Volver a inicio</a>
+    </div>
+</div>
 
 {% endblock %}

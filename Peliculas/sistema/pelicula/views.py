@@ -46,3 +46,6 @@ def eliminar(request, id):
     pelicula = Pelicula.objects.get(id=id)
     pelicula.delete()
     return redirect('peliculas')
+
+def volver(request):
+    return redirect('inicio')
