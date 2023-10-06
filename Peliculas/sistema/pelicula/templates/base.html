@@ -16,19 +16,29 @@
 </head>
 
 <body>
+  <body background="https://images3.alphacoders.com/132/thumb-1920-1326193.png">
+  </body>
   <header>
-    <nav class="navbar navbar-expand navbar-light bg-light">
+    <nav class="navbar navbar-expand navbar-light" style="background-color: transparent;">
         <div class="nav navbar-nav">
-            <a class="nav-item nav-link" href="{% url 'inicio' %}">Inicio</a>
-            <a class="nav-item nav-link" href="{% url 'peliculas' %}">Peliculas</a>
-            <a class="nav-item nav-link" href="{% url 'nosotros' %}">Nosotros</a>
+          <a class="nav-item nav-link active" href="{% url 'inicio' %}" aria-current="page" style="background-color: rgba(255, 128, 0, 0.3); color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; margin-right: 10px;" onmouseover="this.style.backgroundColor='rgba(255, 128, 0, 0.6)'" onmouseout="this.style.backgroundColor='rgba(255, 128, 0, 0.3)'">Inicio<span class="visually-hidden">(current)</span></a>
+          <a class="nav-item nav-link" href="{% url 'peliculas' %}" style="background-color: rgba(0, 170, 228, 0.3); color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; margin-right: 10px;" onmouseover="this.style.backgroundColor='rgba(0, 170, 228, 0.6)'" onmouseout="this.style.backgroundColor='rgba(0, 170, 228, 0.3)'">Películas</a>
+          {% if user.is_authenticated %}
+          <a class="nav-item nav-link" href="{% url 'salir' %}" style="background-color: rgba(255, 0, 0, 0.3); color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; margin-right: 10px;" onmouseover="this.style.backgroundColor='rgba(255, 0, 0, 0.6)'" onmouseout="this.style.backgroundColor='rgba(255, 0, 0, 0.3)'">Salir</a>
+          {% else %}
+          <a class="nav-item nav-link" href="{% url 'login' %}" style="background-color: rgba(136, 220, 101, 0.3); color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; margin-right: 10px;" onmouseover="this.style.backgroundColor='rgba(136, 220, 101, 0.6)'" onmouseout="this.style.backgroundColor='rgba(136, 220, 101, 0.3)'">Ingresar</a>
+          {% endif %}
+          <a class="nav-item nav-link" href="{% url 'nosotros' %}" style="background-color: rgba(255, 121, 135, 0.3); color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; margin-right: 10px;" onmouseover="this.style.backgroundColor='rgba(255, 121, 135, 0.6)'" onmouseout="this.style.backgroundColor='rgba(255, 121, 135, 0.3)'">Nosotros</a>
+          
+          
+          
         </div>
     </nav>
-  </header>
+</header>
+
   <main>
     <div class="container">
         {% block contenido %}
-
         {% endblock %}
   </main>
   <footer>

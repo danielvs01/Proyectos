@@ -1,37 +1,37 @@
 {% extends "base.html" %}
 
-{% block titulo %} Inicio {% endblock %}
+{% block titulo %} Películas {% endblock %}
 
 {% block contenido %}
 
-<div class="card">
+<div class="card" style="max-width: 80rem; background-color: rgb(0, 170, 228, 0.4);">
     <div class="card-header">
         <a name= "" id=""  href="{% url 'crear' %}" class= "btn btn-success" role='button'> Crear película</a>
     </div>
     <div class="card-body">
-        <h4 class="card-title">Peliculas</h4>
+        <h4 class="card-title" style="color: #ffffff;">Películas</h4>
         
         <div class="table-responsive">
             <table class="table responsive">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Título</th>
-                        <th scope="col">Imagen</th>
-                        <th scope="col">Descripción</th>
-                        <th scope="col">Acciones</th>
+                        <th scope="col" class="text-white">ID</th>
+                        <th scope="col" class="text-white">Título</th>
+                        <th scope="col" class="text-white">Imagen</th>
+                        <th scope="col" class="text-white">Descripción</th>
+                        <th scope="col" class="text-white">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for pelicula in peliculas %}
                     <tr class="">
-                        <td scope="row">{{ pelicula.id }}</td>
-                        <td>{{ pelicula.titulo }}</td>
+                        <td class="text-white" scope="row">{{ pelicula.id }}</td>
+                        <td class="text-white">{{ pelicula.titulo }}</td>
                         <td><img src="{{ pelicula.imagen.url }}" height="100"></td>
-                        <td>{{ pelicula.descripcion }}</td>
+                        <td class="text-white">{{ pelicula.descripcion }}</td>
                         <td>
-                            <a href="{% url 'editar' pelicula.id %}" class="btn btn-warning">Editar</a>
-                            <a href="{% url 'eliminar' pelicula.id %}" class="btn btn-danger">Eliminar</a>
+                            <a href="{% url 'editar' pelicula.id %}" class="btn btn-info" style="color: #ffffff;">Editar</a>
+                            <a href="{% url 'eliminar' pelicula.id %}" class="btn btn-danger" style="color: #ffffff;">Eliminar</a>
                         </td>
                     </tr>
                     {% endfor %}
