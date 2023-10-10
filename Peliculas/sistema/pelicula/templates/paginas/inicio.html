@@ -10,22 +10,20 @@
             <h1 class="text-center" style="color: #ffffff; filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));">Bienvenidos al registro de películas</h1>
             <br>
             {% if user.is_authenticated %}
-            <p class="text-center" style="font-size: x-large; color: #ffffff; filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 1));">Hola, {{ user.username }}</p>
+            <p class="text-center" style="font-size: x-large; color: #ffffff; filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 1));">Hola, {{ user.username|capfirst }}</p>
             {% else %}
             <p class="text-center"  style="font-size: x-large; color: #ffffff; filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 1));">Hola, anónimo</p>
             {% endif %}
             <br>
         </div>
 </div>
-</div>
-<div class="card text-dark mx-auto mb-3" style="max-width: 60rem; background-color: rgb(0, 170, 228, 0.2);">
-    <div class="card-header text-center" style="font-size: x-large; color: #ffffff;  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8));">Instrucciones</div>
-    <div class="card-body text-center">
-    {% if user.is_authenticated %}
-    <p class="card-text" style="font-size: x-large; color: #ffffff;  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8));">En la sección de películas puede agregar, eliminar o editar las películas que desee</p>
-    {% else %}
-    <p class="card-text" style="font-size: x-large; color: #ffffff;  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8));">Para agregar, eliminar o editar una película debe iniciar sesión</p>
-    {% endif %}
-    </div>
-</div>
+
+<br>
+<h1 class="card-header text-center" style="font-size: x-large; color: #ffffff; filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8));">Instrucciones</h1>
+<br>
+{% if user.is_authenticated %}
+<h2 class="card-header text-center" style="font-size: x-large; color: #ffffff; filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8));">En la sección de películas puede agregar, eliminar o editar las películas que desee</h2>
+{% else %}
+<h2 class="card-header text-center" style="font-size: x-large; color: #ffffff; filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8));">Para agregar, eliminar o editar una película debe iniciar sesión</h2>
+{% endif %}
 {% endblock %}
