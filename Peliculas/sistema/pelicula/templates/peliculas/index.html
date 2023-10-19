@@ -13,23 +13,23 @@
         <h4 class="card-title" style="color: #ffffff;">Películas</h4>
         
         <div class="table-responsive">
-            <table class="table responsive">
+            <table id="myTable" class="table responsive">
                 <thead>
                     <tr>
-                        <th scope="col" class="text-white">ID</th>
-                        <th scope="col" class="text-white">Título</th>
-                        <th scope="col" class="text-white">Imagen</th>
-                        <th scope="col" class="text-white">Descripción</th>
-                        <th scope="col" class="text-white">Acciones</th>
+                        <th scope="col" class="text-dark">ID</th>
+                        <th scope="col" class="text-dark">Título</th>
+                        <th scope="col" class="text-dark">Imagen</th>
+                        <th scope="col" class="text-dark">Descripción</th>
+                        <th scope="col" class="text-dark">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for pelicula in peliculas %}
                     <tr class="">
-                        <td class="text-white" scope="row">{{ pelicula.id }}</td>
-                        <td class="text-white">{{ pelicula.titulo }}</td>
+                        <td class="text-dark" scope="row">{{ pelicula.id }}</td>
+                        <td class="text-dark">{{ pelicula.titulo }}</td>
                         <td><img src="{{ pelicula.imagen.url }}" height="100"></td>
-                        <td class="text-white">{{ pelicula.descripcion }}</td>
+                        <td class="text-dark">{{ pelicula.descripcion }}</td>
                         <td>
                             <a href="{% url 'editar' pelicula.id %}" class="btn btn-info text-white" style="color: #ffffff;">Editar</a>
                             <a href="{% url 'eliminar' pelicula.id %}" class="btn btn-danger text-white" style="color: #ffffff;">Eliminar</a>
@@ -38,6 +38,18 @@
                     {% endfor %}
                 </tbody>
             </table>
+
+            <script>
+                $(document).ready( function () {
+                    $('#myTable').DataTable();
+                } );
+
+                var table = new DataTable('#myTable', {
+    language: {
+        url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json',
+    },
+});
+            </script>
         </div>
         
 
