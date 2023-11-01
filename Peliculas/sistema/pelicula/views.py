@@ -2,6 +2,8 @@ from django.shortcuts import render , redirect
 from django.http import HttpResponse
 from .models import Pelicula
 from .forms import PeliculaForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 # Create your views here.
 
 def inicio(request):
@@ -10,9 +12,17 @@ def inicio(request):
 def nosotros(request):
     return render(request, "paginas/nosotros.html")
 
+@login_required
 def peliculas(request):
     peliculas = Pelicula.objects.all()
     return render(request, "peliculas/index.html", {'peliculas': peliculas})
+
+def login(request):
+    return render(request, 'login/login.html')
+
+def salir(request):
+    logout(request)
+    return redirect('inicio')
 
 def crear(request):
     formulario = PeliculaForm(request.POST or None, request.FILES or None)
@@ -36,3 +46,6 @@ def eliminar(request, id):
     pelicula = Pelicula.objects.get(id=id)
     pelicula.delete()
     return redirect('peliculas')
+
+def volver(request):
+    return redirect('inicio')

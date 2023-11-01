@@ -1,20 +1,29 @@
 {% extends "base.html" %}
 
-{% block titulo %} Inicio {% endblock %}
+{% block titulo %} CD Películas {% endblock %}
 
 {% block contenido %}
 
-<div class="card">
-    <div class="card-header">
-        Bienvenidos al registro de peliculas
-    </div>
-    <div class="card-body">
-        <h4 class="card-title">Instrucciones</h4>
-        <p class="card-text">Text</p>
-    </div>
-    <div class="card-footer text-muted">
-        Gracias por visitarnos
-    </div>
+<div calss="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center" style="color: #ffffff; filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));">Bienvenidos al registro de películas</h1>
+            <br>
+            {% if user.is_authenticated %}
+            <p class="text-center" style="font-size: x-large; color: #ffffff; filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 1));">Hola, {{ user.username|capfirst }}</p>
+            {% else %}
+            <p class="text-center"  style="font-size: x-large; color: #ffffff; filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 1));">Hola, anónimo</p>
+            {% endif %}
+            <br>
+        </div>
 </div>
 
+<br>
+<h1 class="card-header text-center" style="font-size: x-large; color: #ffffff; filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8));">Instrucciones</h1>
+<br>
+{% if user.is_authenticated %}
+<h2 class="card-header text-center" style="font-size: x-large; color: #ffffff; filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8));">En la sección de películas puede ver, agregar, eliminar o editar las películas que desee</h2>
+{% else %}
+<h2 class="card-header text-center" style="font-size: x-large; color: #ffffff; filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8));">Para ver, agregar, eliminar o editar una película debe iniciar sesión</h2>
+{% endif %}
 {% endblock %}

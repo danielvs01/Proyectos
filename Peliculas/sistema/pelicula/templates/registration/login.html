@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+
+{% load static %}
+{% block titulo %}Login{% endblock %}
+{% block contenido %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="form-group" style="margin-bottom: 10px;">
+        <label for="id_username" style="font-size: x-large; color: #ffffff;">Nombre de usuario</label>
+        <input type="text" name="username" id="id_username" class="form-control" placeholder="Nombre de usuario" style="background-color: transparent;">
+    </div>
+    <div class="form-group" style="margin-bottom: 10px;">
+        <label for="id_password" style="font-size: x-large; color: #ffffff;">Contraseña</label>
+        <input type="password" name="password" id="id_password" class="form-control" placeholder="Contraseña" style="background-color: transparent;">
+    </div>
+    <button type="submit" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" >Ingresar</button>
+</form>
+
+{% endblock %}

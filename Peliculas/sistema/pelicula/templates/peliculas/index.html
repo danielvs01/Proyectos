@@ -1,42 +1,55 @@
 {% extends "base.html" %}
 
-{% block titulo %} Inicio {% endblock %}
+{% block titulo %} Películas {% endblock %}
 
 {% block contenido %}
 
-<div class="card">
+<body background="https://images3.alphacoders.com/132/thumb-1920-1326193.png"></body>
+<div class="card" style="max-width: 80rem; background-color: rgb(0, 170, 228, 0.6);">
     <div class="card-header">
-        <a name= "" id=""  href="{% url 'crear' %}" class= "btn btn-success" role='button'> Crear película</a>
+        <a name= "" id=""  href="{% url 'crear' %}" class= "btn btn-light text-dark" role='button'> Crear película</a>
     </div>
     <div class="card-body">
-        <h4 class="card-title">Peliculas</h4>
+        <h4 class="card-title" style="color: #ffffff;">Películas</h4>
         
         <div class="table-responsive">
-            <table class="table responsive">
+            <table id="myTable" class="table responsive">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Título</th>
-                        <th scope="col">Imagen</th>
-                        <th scope="col">Descripción</th>
-                        <th scope="col">Acciones</th>
+                        <th scope="col" class="text-dark">ID</th>
+                        <th scope="col" class="text-dark">Título</th>
+                        <th scope="col" class="text-dark">Imagen</th>
+                        <th scope="col" class="text-dark">Descripción</th>
+                        <th scope="col" class="text-dark">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for pelicula in peliculas %}
                     <tr class="">
-                        <td scope="row">{{ pelicula.id }}</td>
-                        <td>{{ pelicula.titulo }}</td>
+                        <td class="text-dark" scope="row">{{ pelicula.id }}</td>
+                        <td class="text-dark">{{ pelicula.titulo }}</td>
                         <td><img src="{{ pelicula.imagen.url }}" height="100"></td>
-                        <td>{{ pelicula.descripcion }}</td>
+                        <td class="text-dark">{{ pelicula.descripcion }}</td>
                         <td>
-                            <a href="{% url 'editar' pelicula.id %}" class="btn btn-warning">Editar</a>
-                            <a href="{% url 'eliminar' pelicula.id %}" class="btn btn-danger">Eliminar</a>
+                            <a href="{% url 'editar' pelicula.id %}" class="btn btn-info text-white" style="color: #ffffff;">Editar</a>
+                            <a href="{% url 'eliminar' pelicula.id %}" class="btn btn-danger text-white" style="color: #ffffff;">Eliminar</a>
                         </td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
+
+            <script>
+                $(document).ready( function () {
+                    $('#myTable').DataTable();
+                } );
+
+                var table = new DataTable('#myTable', {
+    language: {
+        url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json',
+    },
+});
+            </script>
         </div>
         
 
